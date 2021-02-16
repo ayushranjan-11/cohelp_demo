@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <RelativeLayout
+        android:id="@+id/map_holder"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        android:elevation="10dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/address_holder"
+        android:background="@drawable/address_background">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsActivity" />
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#F2F1F0"
+            android:background="@drawable/button_bkgrd"
+            android:fontFamily="@font/allerta_stencil"
+            android:text="SUBMIT"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:onClick="submitlocation"
+            android:elevation="10dp"
+            android:layout_margin="12dp">
+        </Button>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/address_holder"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="false"
+        android:background="@drawable/address_background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp">
+
+
+            <RelativeLayout
+                android:id="@+id/userchoiceimageholder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="false"
+                android:background="@drawable/address_background"
+                android:elevation="5dp">
+                <TextView
+                    android:id="@+id/collectmytext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Collect my :"
+                    android:textColor="#444858"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <LinearLayout
+                    android:id="@+id/imageholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="false"
+                    android:layout_below="@id/collectmytext"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:divider="?android:dividerVertical"
+                        android:showDividers="end"
+                        android:layout_marginStart="8dp">
+                        <ImageView
+                            android:id="@+id/cartonboximageholder"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/newspapers">
+
+                        </ImageView>
+
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:divider="?android:dividerVertical"
+                    android:showDividers="end"
+                    android:layout_marginStart="40dp">
+
+                    <ImageView
+                        android:id="@+id/newspaperimageholder"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/cartonbox">
+
+                    </ImageView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:divider="?android:dividerVertical"
+                    android:showDividers="end"
+                    android:layout_marginStart="25dp">
+                    <ImageView
+                        android:id="@+id/bothimageholder"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/newspaperandcarton">
+
+                    </ImageView>
+                </LinearLayout>
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/radiogroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/imageholder"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true">
+                    <RadioButton
+                        android:id="@+id/newspaperradio_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Newspapers"
+                        android:textStyle="normal"
+                        android:onClick="checkButton">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/cartonradio_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="35dp"
+                        android:text="Cartons"
+                        android:textStyle="normal"
+                        android:onClick="checkButton">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/bothradio_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:text="Both"
+                        android:textStyle="normal"
+                        android:onClick="checkButton">
+
+                    </RadioButton>
+                </RadioGroup>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/formfill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical"
+                android:layout_below="@id/userchoiceimageholder"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="false">
+
+                <TextView
+                    android:id="@+id/quantityText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/allerta_stencil"
+                    android:text="Quantity(in kg*) :"
+                    android:textColor="#444858"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+                <RelativeLayout
+                    android:id="@+id/quantitybuttonholder"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/minusbutton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignBottom="@id/quantityinput"
+                        android:textColor="#F2F1F0"
+                        android:background="@drawable/button_bkgrd"
+                        android:fontFamily="@font/allerta_stencil"
+                        android:onClick="decreaseQuantity"
+                        android:text="-">
+
+                    </Button>
+
+                    <Button
+                        android:id="@+id/addbutton"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:text="+"
+                        android:layout_toEndOf="@id/quantityinput"
+                        android:layout_alignBottom="@id/quantityinput"
+                        android:onClick="increaseQuantity"
+                        android:textColor="#F2F1F0"
+                        android:background="@drawable/button_bkgrd"
+                        android:fontFamily="@font/allerta_stencil">
+
+                    </Button>
+                    <TextView
+                        android:id="@+id/quantityinput"
+                        android:layout_width="25dp"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/minusbutton"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="#9CA5B1">
+                    </TextView>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/priceText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/allerta_stencil"
+                    android:text="Amount receivable"
+                    android:textColor="#444858"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/priceinput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Quantity price"
+                    android:textColor="#9CA5B1"
+                    android:enabled="false">
+                </EditText>
+
+                <TextView
+                    android:id="@+id/contactnumbertext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/allerta_stencil"
+                    android:text="Contact number"
+                    android:textColor="#444858"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/contactnumberinput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Your phone number"
+                    android:textColor="#9CA5B1"
+                    android:inputType="phone"
+                    android:enabled="true">
+                </EditText>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/pickuptimetext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/allerta_stencil"
+                android:text="Pickup date"
+                android:layout_below="@id/formfill"
+                android:textColor="#444858"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/pickuptimeinput"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Favourable date"
+                android:inputType="date"
+                android:layout_below="@id/pickuptimetext">
+
+            </EditText>
+
+            <LinearLayout
+                android:layout_below="@id/pickuptimeinput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:id="@+id/addresstext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/allerta_stencil"
+                    android:text="Address:"
+                    android:textColor="#444858"
+                    android:textSize="18sp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <EditText
+                    android:id="@+id/knownName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Pinpoint your address in map"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:textColor="#9CA5B1"
+                    android:textSize="18sp"
+                    android:textStyle="normal">
+                </EditText>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
